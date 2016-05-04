@@ -197,6 +197,7 @@
     <Content Include="Views\Carriers\Edit.cshtml" />
     <Content Include="Views\Carriers\Delete.cshtml" />
     <Content Include="Views\Ratings\Index.cshtml" />
+    <Content Include="Views\Ratings\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

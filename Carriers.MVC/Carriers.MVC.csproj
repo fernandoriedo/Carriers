@@ -196,10 +196,10 @@
     <Content Include="Views\Carriers\Create.cshtml" />
     <Content Include="Views\Carriers\Edit.cshtml" />
     <Content Include="Views\Carriers\Delete.cshtml" />
+    <Content Include="Views\Ratings\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Ratings\" />
     <Folder Include="Views\Users\" />
   </ItemGroup>
   <ItemGroup>

@@ -41,8 +41,9 @@ namespace Carriers.MVC.Controllers
         {
             if (GerenciadorSessao.User != null)
             {
-                var existRating = _ratingApp.GetAll().FirstOrDefault(r => r.UserId == GerenciadorSessao.User.UserId);
-                if(existRating != null) return RedirectToAction("Index", "Ratings");
+                var existRating = _ratingApp.GetAll();
+                var exist = existRating.FirstOrDefault(r => r.UserId == GerenciadorSessao.User.UserId);
+                if (existRating == null) return RedirectToAction("Index", "Ratings");
 
                 ViewBag.CarrierId = new SelectList(_carrierApp.GetAll(), "CarrierId", "Name");
 

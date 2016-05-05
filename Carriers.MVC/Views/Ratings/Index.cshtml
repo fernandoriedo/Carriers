@@ -21,7 +21,7 @@
             @Html.DisplayNameFor(model => model.Available)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CarrierId)
+            @Html.DisplayName("Carrier")
         </th>
         <th></th>
     </tr>
@@ -38,7 +38,7 @@
             @Html.DisplayFor(modelItem => item.Available)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CarrierId)
+            @Html.DisplayFor(modelItem => item.Carrier.Name)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.RatingId }) |

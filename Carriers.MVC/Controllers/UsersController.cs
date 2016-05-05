@@ -114,20 +114,17 @@ namespace Carriers.MVC.Controllers
             return RedirectToAction("Index", "Carriers");
         }
 
-        public ActionResult LogOut(int id)
+        public ActionResult LogOut()
         {
-            var user = _userApp.GetById(id);
-
-
             /**
             * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
             *  Infelizmente não tive tempo de implementar o Identity :(       * 
             * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
             **/
 
-            GerenciadorSessao.User = Mapper.Map<User, UserViewModel>(user);
+            GerenciadorSessao.LimparSessao();
 
-            return RedirectToAction("Index", "Carriers");
+            return RedirectToAction("Index", "Users");
         }
 
     }

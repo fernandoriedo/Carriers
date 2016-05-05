@@ -31,5 +31,10 @@ namespace Carriers.MVC.ViewModels
         public int CarrierId { get; set; }
 
         public virtual CarrierViewModel Carrier { get; set; }
+
+        public int UserId { get; set; }
+
+        public virtual UserViewModel User { get; set; }
+
     }
 }

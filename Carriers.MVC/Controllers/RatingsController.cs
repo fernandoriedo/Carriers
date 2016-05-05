@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using AutoMapper;
 using Carriers.Application.Interfaces;
 using Carriers.Domain.Entities;
+using Carriers.MVC.Helpers;
 using Carriers.MVC.ViewModels;
 
 namespace Carriers.MVC.Controllers
@@ -37,8 +39,17 @@ namespace Carriers.MVC.Controllers
         // GET: Carriers/Create
         public ActionResult Create()
         {
-            ViewBag.CarrierId = new SelectList(_carrierApp.GetAll(), "CarrierId", "Name");
-            return View();
+            if (GerenciadorSessao.User != null)
+            {
+                var existRating = _ratingApp.GetAll().FirstOrDefault(r => r.UserId == GerenciadorSessao.User.UserId);
+                if(existRating != null) return RedirectToAction("Index", "Ratings");
+
+                ViewBag.CarrierId = new SelectList(_carrierApp.GetAll(), "CarrierId", "Name");
+
+                return View();
+            }
+
+            return RedirectToAction("Index", "Users");
         }
 
         // POST: Carriers/Create
@@ -46,16 +57,21 @@ namespace Carriers.MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(RatingViewModel rating)
         {
-            if (ModelState.IsValid)
+            if (GerenciadorSessao.User != null)
             {
-                var ratingDomain = Mapper.Map<RatingViewModel, Rating>(rating);
-                _ratingApp.Add(ratingDomain);
+                rating.User = GerenciadorSessao.User;
+                if (ModelState.IsValid)
+                {
+                    var ratingDomain = Mapper.Map<RatingViewModel, Rating>(rating);
+                    _ratingApp.Add(ratingDomain);
 
-                return RedirectToAction("Index");
+                    return RedirectToAction("Index");
+                }
+
+                ViewBag.CarrierId = new SelectList(_carrierApp.GetAll(), "CarrierId", "Name");
+                return View(rating);
             }
-
-            ViewBag.CarrierId = new SelectList(_carrierApp.GetAll(), "CarrierId", "Name");
-            return View(rating);
+            return RedirectToAction("Index", "Users");
         }
 
         // GET: Carriers/Edit/5

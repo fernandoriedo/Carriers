@@ -9,7 +9,7 @@ namespace Carriers.MVC.ViewModels
         [Key]
         public int UserId { get; set; }
 
-        [Required(ErrorMessage = "Preencha o campo Usuário")]
+        //[Required(ErrorMessage = "Preencha o campo Usuário")]
         [MaxLength(50, ErrorMessage = "Máximo {0} caracteres")]
         [DisplayName("Nome Usuário")]
         public string Name { get; set; }

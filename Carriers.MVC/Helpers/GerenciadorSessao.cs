@@ -18,6 +18,11 @@ namespace Carriers.MVC.Helpers
             set { Set<UserViewModel>("User", value); }
         }
 
+        public static void LimparSessao()
+        {
+            HttpContext.Current.Session.Clear();
+        }
+
         /// <summary> Gets. </summary>
         /// <typeparam name="T"> Generic type parameter. </typeparam>
         /// <param name="key"> The key. </param>

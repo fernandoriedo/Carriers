@@ -1,0 +1,50 @@
+﻿@model Carriers.MVC.ViewModels.RatingViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RatingViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Comment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Available)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Available)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarrierId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarrierId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RatingId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

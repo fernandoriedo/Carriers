@@ -165,6 +165,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -198,6 +199,9 @@
     <Content Include="Views\Carriers\Delete.cshtml" />
     <Content Include="Views\Ratings\Index.cshtml" />
     <Content Include="Views\Ratings\Create.cshtml" />
+    <Content Include="Views\Ratings\Delete.cshtml" />
+    <Content Include="Views\Ratings\Details.cshtml" />
+    <Content Include="Views\Ratings\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -223,6 +227,9 @@
       <Project>{7c8d22c3-dda3-4886-885b-c77843fad54b}</Project>
       <Name>Carriers.Infra.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

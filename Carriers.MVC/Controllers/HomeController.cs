@@ -5,16 +5,8 @@ namespace Carriers.MVC.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IUserAppService _userApp;
-
-        public HomeController(IUserAppService userApp)
-        {
-            _userApp = userApp;
-        }
         public ActionResult Index()
         {
-            ViewBag.UserId = new SelectList(_userApp.GetAll(), "UserId", "Name");
-
             return View();
         }
 

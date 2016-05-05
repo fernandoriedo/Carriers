@@ -1,4 +1,6 @@
-﻿namespace Carriers.Domain.Entities
+﻿using System;
+
+namespace Carriers.Domain.Entities
 {
     public class Rating
     {
@@ -9,6 +11,7 @@
         public int CarrierId { get; set; }
         public virtual Carrier Carrier { get; set; }
         public int UserId { get; set; }
+        public DateTime DateRegister { get; set; }
         public virtual User User { get; set; }
     }
 }

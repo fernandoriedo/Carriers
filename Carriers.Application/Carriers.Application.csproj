@@ -44,7 +44,9 @@
     <Compile Include="CarrierAppService.cs" />
     <Compile Include="Interfaces\IAppServiceBase.cs" />
     <Compile Include="Interfaces\ICarrierAppService.cs" />
+    <Compile Include="Interfaces\IUserAppService.cs" />
     <Compile Include="Interfaces\IRatingAppService.cs" />
+    <Compile Include="Interfaces\UserAppService.cs" />
     <Compile Include="RatingAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

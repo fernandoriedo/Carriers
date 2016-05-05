@@ -18,6 +18,7 @@ namespace Carriers.Infra.Data.Context
 
         public DbSet<Carrier> Carrieres { get; set; }
         public DbSet<Rating> Ratings { get; set; }
+        public DbSet<User> Users { get; set; }
 
 #region Override's
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

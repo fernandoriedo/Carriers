@@ -16,6 +16,7 @@ namespace Carriers.MVC.AutoMapper
         {
             CreateMap<Carrier, CarrierViewModel>();
             CreateMap<Rating, RatingViewModel>();
+            CreateMap<User, UserViewModel>();
 
             //var config = new MapperConfiguration(cfg => {
             //    cfg.CreateMap<CarrierViewModel, Carrier>();

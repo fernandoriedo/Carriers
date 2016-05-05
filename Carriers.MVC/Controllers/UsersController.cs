@@ -1,23 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
+using AutoMapper;
+using Carriers.Application.Interfaces;
+using Carriers.Domain.Entities;
+using Carriers.MVC.Helpers;
+using Carriers.MVC.ViewModels;
 
 namespace Carriers.MVC.Controllers
 {
     public class UsersController : Controller
     {
+        private readonly IUserAppService _userApp;
+
+        public UsersController(IUserAppService userApp)
+        {
+            _userApp = userApp;
+        }
+
         // GET: Users
         public ActionResult Index()
         {
-            return View();
+            var userViewModel =
+                Mapper.Map<IEnumerable<User>, IEnumerable<UserViewModel>>(_userApp.GetAll());
+            return View(userViewModel);
         }
 
         // GET: Users/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var user = _userApp.GetById(id);
+            var userViewModel = Mapper.Map<User, UserViewModel>(user);
+            return View(userViewModel);
         }
 
         // GET: Users/Create
@@ -28,62 +41,94 @@ namespace Carriers.MVC.Controllers
 
         // POST: Users/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(UserViewModel user)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
+                var userDomain = Mapper.Map<UserViewModel, User>(user);
+                _userApp.Add(userDomain);
 
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(user);
         }
 
         // GET: Users/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var user = _userApp.GetById(id);
+            var userViewModel = Mapper.Map<User, UserViewModel>(user);
+            return View(userViewModel);
         }
 
         // POST: Users/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(UserViewModel user)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
+                var userDomain = Mapper.Map<UserViewModel, User>(user);
+                _userApp.Update(userDomain);
 
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(user);
         }
 
         // GET: Users/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var user = _userApp.GetById(id);
+            var userViewModel = Mapper.Map<User, UserViewModel>(user);
+            return View(userViewModel);
         }
 
         // POST: Users/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            var user = _userApp.GetById(id);
+            _userApp.Remove(user);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
         }
+
+        // GET: Users/Edit/5
+        public ActionResult LogIn(int id)
+        {
+            var user = _userApp.GetById(id);
+
+
+            /**
+            * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+            *  Infelizmente não tive tempo de implementar o Identity :(       * 
+            * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+            **/
+
+            GerenciadorSessao.User = Mapper.Map<User, UserViewModel>(user);
+
+            return RedirectToAction("Index", "Carriers");
+        }
+
+        public ActionResult LogOut(int id)
+        {
+            var user = _userApp.GetById(id);
+
+
+            /**
+            * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+            *  Infelizmente não tive tempo de implementar o Identity :(       * 
+            * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+            **/
+
+            GerenciadorSessao.User = Mapper.Map<User, UserViewModel>(user);
+
+            return RedirectToAction("Index", "Carriers");
+        }
+
     }
 }

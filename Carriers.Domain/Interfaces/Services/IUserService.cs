@@ -2,7 +2,7 @@
 
 namespace Carriers.Domain.Interfaces.Services
 {
-    public interface ICarrierService : IServiceBase<Carrier>
+    public interface IUserService : IServiceBase<User>
     {
     }
 }

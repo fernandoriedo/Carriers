@@ -36,13 +36,16 @@
     <Compile Include="Interfaces\Repositories\ICarrierRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRatingRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepositoryBase.cs" />
+    <Compile Include="Interfaces\Repositories\IUserRepository.cs" />
     <Compile Include="Interfaces\Services\ICarrierService.cs" />
     <Compile Include="Interfaces\Services\IRatingService.cs" />
     <Compile Include="Interfaces\Services\IServiceBase.cs" />
+    <Compile Include="Interfaces\Services\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CarrierService.cs" />
     <Compile Include="Services\RatingService.cs" />
     <Compile Include="Services\ServiceBase.cs" />
+    <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

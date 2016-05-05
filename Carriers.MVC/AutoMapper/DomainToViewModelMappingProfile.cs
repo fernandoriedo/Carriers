@@ -15,6 +15,7 @@ namespace Carriers.MVC.AutoMapper
         {
             CreateMap<CarrierViewModel, Carrier>();
             CreateMap<RatingViewModel, Rating>();
+            CreateMap<UserViewModel, User>();
         }
     }
 }

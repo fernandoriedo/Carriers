@@ -72,14 +72,17 @@ namespace Carriers.MVC.App_Start
             kernel.Bind(typeof(IAppServiceBase<>)).To(typeof(AppServiceBase<>));
             kernel.Bind<ICarrierAppService>().To<CarrierAppService>();
             kernel.Bind<IRatingAppService>().To<RatingAppService>();
+            kernel.Bind<IUserAppService>().To<UserAppService>();
 
             kernel.Bind(typeof(IServiceBase<>)).To(typeof(ServiceBase<>));
             kernel.Bind<ICarrierService>().To<CarrierService>();
             kernel.Bind<IRatingService>().To<RatingService>();
+            kernel.Bind<IUserService>().To<UserService>();
 
             kernel.Bind(typeof(IRepositoryBase<>)).To(typeof(RepositoryBase<>));
             kernel.Bind<ICarrierRepository>().To<CarrierRepository>();
             kernel.Bind<IRatingRepository>().To<RatingRepository>();
+            kernel.Bind<IUserRepository>().To<UserRepository>();
 
         }
     }

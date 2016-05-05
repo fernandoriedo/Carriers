@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
@@ -23,6 +24,9 @@ namespace Carriers.MVC.ViewModels
 
         [DisplayName("Disponivel?")]
         public bool Available { get; set; }
+
+        [ScaffoldColumn(false)]
+        public DateTime DateRegister { get; set; }
 
         public int CarrierId { get; set; }
 

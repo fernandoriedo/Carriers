@@ -38,6 +38,7 @@ namespace Carriers.Infra.Data.Context
 
             modelBuilder.Configurations.Add(new CarrierConfiguration());
             modelBuilder.Configurations.Add(new RatingConfiguration());
+            modelBuilder.Configurations.Add(new UserConfiguration());
 
         }
 

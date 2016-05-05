@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Carriers.Domain.Entities
 {
@@ -9,5 +10,8 @@ namespace Carriers.Domain.Entities
         public string Login { get; set; }
         public string Password { get; set; }
         public DateTime DateRegister { get; set; }
+
+        public virtual IEnumerable<Rating> Ratings { get; set; }
+
     }
 }

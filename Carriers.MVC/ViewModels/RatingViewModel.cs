@@ -16,7 +16,6 @@ namespace Carriers.MVC.ViewModels
         public string Comment { get; set; }
 
         
-        [DataType(DataType.Currency)]
         [Range(typeof(int), "0", "10")]
         [Required(ErrorMessage = "Preencha uma nota de classificação")]
         [DisplayName("Nota Classificação")]

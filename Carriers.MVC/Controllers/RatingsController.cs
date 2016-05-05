@@ -24,7 +24,7 @@ namespace Carriers.MVC.Controllers
         public ActionResult Index()
         {
             var ratingViewModel =
-                Mapper.Map<IEnumerable<Rating>, IEnumerable<RatingViewModel>>(_ratingApp.GetAll());
+                Mapper.Map<IEnumerable<Rating>, IEnumerable<RatingViewModel>>(_ratingApp.GetAll().Where(r => r.UserId == GerenciadorSessao.User.UserId));
             return View(ratingViewModel);
         }
 
@@ -41,9 +41,6 @@ namespace Carriers.MVC.Controllers
         {
             if (GerenciadorSessao.User != null)
             {
-                var existRating = _ratingApp.GetAll();
-                var exist = existRating.FirstOrDefault(r => r.UserId == GerenciadorSessao.User.UserId);
-                if (existRating == null) return RedirectToAction("Index", "Ratings");
 
                 ViewBag.CarrierId = new SelectList(_carrierApp.GetAll(), "CarrierId", "Name");
 
@@ -63,6 +60,8 @@ namespace Carriers.MVC.Controllers
                 rating.User = GerenciadorSessao.User;
                 if (ModelState.IsValid)
                 {
+                    if (_ratingApp.GetAll().Any(r => r.UserId == GerenciadorSessao.User.UserId && r.CarrierId == rating.CarrierId)) return RedirectToAction("Index", "Ratings");
+
                     var ratingDomain = Mapper.Map<RatingViewModel, Rating>(rating);
                     _ratingApp.Add(ratingDomain);
 

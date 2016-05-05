@@ -23,12 +23,14 @@ namespace Carriers.MVC.ViewModels
         [DisplayName("Endereço")]
         public string Address { get; set; }
 
+        [DataType(DataType.PhoneNumber)]
         [Required(ErrorMessage = "Preencha o campo Sobrenome")]
         [MaxLength(20, ErrorMessage = "Máximo {0} caracteres")]
         [MinLength(5, ErrorMessage = "Mínimo {0} caracteres")]
         [DisplayName("Telefone")]
         public string PhoneNumber { get; set; }
 
+        [DataType(DataType.EmailAddress)]
         [Required(ErrorMessage = "Preencha o campo Email")]
         [MaxLength(100, ErrorMessage = "Máximo {0} caracteres")]
         [EmailAddress(ErrorMessage = "Preencha um E-mail válido")]

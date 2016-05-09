@@ -57,7 +57,7 @@ namespace Carriers.MVC.Controllers
         {
             if (GerenciadorSessao.User != null)
             {
-                rating.User = GerenciadorSessao.User;
+                rating.UserId = GerenciadorSessao.User.UserId;
                 if (ModelState.IsValid)
                 {
                     if (_ratingApp.GetAll().Any(r => r.UserId == GerenciadorSessao.User.UserId && r.CarrierId == rating.CarrierId)) return RedirectToAction("Index", "Ratings");

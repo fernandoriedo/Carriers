@@ -21,12 +21,14 @@ namespace Carriers.MVC.ViewModels
         [DisplayName("Nota Classificação")]
         public int Note { get; set; }
 
-        [DisplayName("Disponivel?")]
-        public bool Available { get; set; }
+        [DisplayName("Recomenda?")]
+        public bool Recommended { get; set; }
 
         [ScaffoldColumn(false)]
         public DateTime DateRegister { get; set; }
 
+        [Required(ErrorMessage = "Escolha uma transportadora!")]
+        [DisplayName("Transportadora")]
         public int CarrierId { get; set; }
 
         public virtual CarrierViewModel Carrier { get; set; }

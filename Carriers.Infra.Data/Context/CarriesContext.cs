@@ -23,8 +23,8 @@ namespace Carriers.Infra.Data.Context
 #region Override's
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();    // Não deletar em cascata - Um para muitos
-            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();   // Não deletar em cascata - Muitos para muitos 
+            //modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();    // Não deletar em cascata - Um para muitos
+            //modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();   // Não deletar em cascata - Muitos para muitos 
 
             modelBuilder.Properties()
                 .Where(p => p.Name == p.ReflectedType.Name + "Id")

@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Classificação das transportadoras</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -18,7 +18,7 @@
             @Html.DisplayNameFor(model => model.Note)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Available)
+            @Html.DisplayNameFor(model => model.Recommended)
         </th>
         <th>
             @Html.DisplayName("Carrier")
@@ -35,7 +35,7 @@
             @Html.DisplayFor(modelItem => item.Note)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Available)
+            @Html.DisplayFor(modelItem => item.Recommended)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Carrier.Name)

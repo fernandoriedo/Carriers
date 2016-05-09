@@ -1,11 +1,7 @@
 ﻿@using Carriers.MVC.Helpers
 @model Carriers.MVC.ViewModels.RatingViewModel
 
-@{
-    ViewBag.Title = "Create";
-}
-
-<h2>Create</h2>
+<h2>Classificar transportadora</h2>
 
 
 @using (Html.BeginForm()) 
@@ -13,7 +9,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>RatingViewModel</h4>
+        <h4>Você deve classificar apenas uma única vez uma transportadora!</h4>
         <hr />
         @*<div class="form-group">
             @Html.LabelFor(model => model.User.Name, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -41,11 +37,11 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Available, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Recommended, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
-                    @Html.EditorFor(model => model.Available)
-                    @Html.ValidationMessageFor(model => model.Available, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.Recommended)
+                    @Html.ValidationMessageFor(model => model.Recommended, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
